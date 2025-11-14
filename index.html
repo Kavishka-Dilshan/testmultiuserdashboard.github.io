@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-page Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- AUTH CONTAINER -->
+<div id="auth-container">
+
+  <!-- LOGIN FORM -->
+  <div class="form-box" id="login-box">
+    <h2>Login</h2>
+    <div class="message" id="login-msg"></div>
+    <form id="login-form">
+      <div class="input-group">
+        <label>Username</label>
+        <input type="text" id="login-username" placeholder="Enter username" required>
+      </div>
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" id="login-password" placeholder="Enter password" required>
+      </div>
+      <button type="submit" class="btn">Login</button>
+    </form>
+    <p>Don't have an account? <span class="toggle-link" onclick="showRegister()">Register</span></p>
+  </div>
+
+  <!-- REGISTER FORM -->
+  <div class="form-box" id="register-box" style="display:none;">
+    <h2>Register</h2>
+    <div class="message" id="register-msg"></div>
+    <form id="register-form">
+      <div class="input-group">
+        <label>Real Name</label>
+        <input type="text" id="reg-realname" placeholder="Enter your full name" required>
+      </div>
+      <div class="input-group">
+        <label>Username</label>
+        <input type="text" id="reg-username" placeholder="Choose a username" required>
+      </div>
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" id="reg-password" placeholder="Enter password" required>
+      </div>
+      <button type="submit" class="btn">Register</button>
+    </form>
+    <p>Already have an account? <span class="toggle-link" onclick="showLogin()">Login</span></p>
+  </div>
+
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard" id="dashboard" style="display:none;">
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <ul>
+      <li><a href="#" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" onclick="showPage('profile')">Profile</a></li>
+      <li><a href="#" onclick="showPage('settings')">Settings</a></li>
+      <li><a href="#" onclick="logout()">Logout</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content Pages -->
+  <main class="main-content">
+    <!-- HOME PAGE -->
+    <section id="home-page" class="page">
+      <h2>Welcome, <span id="user-name"></span></h2>
+      <div class="card">Total Registered Users: <span id="user-count">0</span></div>
+    </section>
+
+    <!-- PROFILE PAGE -->
+    <section id="profile-page" class="page" style="display:none;">
+      <h2>Profile</h2>
+      <form id="profile-form">
+        <div class="input-group">
+          <label>Real Name</label>
+          <input type="text" id="profile-realname" required>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="profile-password" required>
+        </div>
+        <button type="submit" class="btn">Update Profile</button>
+      </form>
+      <div class="message" id="profile-msg"></div>
+    </section>
+
+    <!-- SETTINGS PAGE -->
+    <section id="settings-page" class="page" style="display:none;">
+      <h2>Settings</h2>
+      <p>This is a placeholder for future settings options.</p>
+    </section>
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
